@@ -47,7 +47,7 @@ html, body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #1687A7;
+    background-color: #F9F7F7;
     padding: 16px 80px;
     position: relative;
     width: 100%;
@@ -63,7 +63,7 @@ html, body {
 
 /* Logo Styles */
 .logo img {
-    height: 36px;
+    height: 32px;
     width: auto;
     display: block;
 }
@@ -82,7 +82,7 @@ html, body {
 }
 
 .nav-links a {
-    color: white;
+    color: #112D4E;
     text-decoration: none;
     font-family: 'Segoe UI', sans-serif;
     font-weight: 500;
@@ -98,7 +98,7 @@ html, body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: white;
+    background-color: #112D4E;
     transition: width 0.3s ease;
 }
 
@@ -114,10 +114,9 @@ html, body {
 }
 
 /* Button Konsultasi Styles */
-.btn-konsultasi {
-    background: white;
-    border: 2px solid white;
-    color: #1687A7;
+.btn-scan {
+    background: #112D4E;
+    color: #F9F7F7;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     font-family: 'Segoe UI', sans-serif;
@@ -130,12 +129,12 @@ html, body {
     text-decoration: none;
 }
 
-.btn-konsultasi:hover {
+.btn-scan:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.btn-konsultasi:active {
+.btn-scan:active {
     transform: translateY(-1px) scale(1.02);
 }
 
@@ -154,7 +153,7 @@ html, body {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: white;
+    background: #112D4E;
     border-radius: 3px;
     transition: all 0.3s ease;
 }
@@ -193,7 +192,7 @@ html, body {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .navbar {
-        padding: 16px max(24px, env(safe-area-inset-right));
+        padding: 18px max(24px, env(safe-area-inset-right));
         width: 100%;
         max-width: 100%;
         overflow: hidden;
@@ -210,7 +209,7 @@ html, body {
     }
 
     .mobile-logo img {
-        height: 36px;
+        height: 24px;
         width: auto;
         margin-left: 0; /* Tambahkan ini */
     }
@@ -222,7 +221,7 @@ html, body {
         height: 100vh;
         width: 70%;
         max-width: 70%;
-        background: #1687A7;
+        background: #F9F7F7;
         display: flex;
         flex-direction: column;
         padding: 2rem;
@@ -264,7 +263,7 @@ html, body {
         margin-bottom: 2rem;
     }
 
-    .btn-konsultasi {
+    .btn-scan {
         width: 100%;
         text-align: center;
     }
@@ -310,18 +309,19 @@ html, body {
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="../public/asset/design/logo/navbar1.png" alt="NeuraScan Logo">
+            <img src="asset/img/logo.png" alt="NeuraScan Logo">
         </div>
     
         <div class="nav-links">
             <div class="mobile-logo">
-                <img src="../design/logo/navbar1.png" alt="NeuraScan Logo">
+                <img src="asset/img/logo.png" alt="NeuraScan Logo">
             </div>
             
             <a href="#beranda">Home</a>
-            <a href="#layanan">Documentation</a>
+            <a href="#layanan">Docs</a>
+            <a href="#layanan">Tentang Kami</a>
             <div class="auth-buttons">
-                <button class="btn btn-konsultasi">Tentang Kami</button>
+                <button class="btn btn-scan">Scan Sekarang</button>
             </div>
         </div>
     
@@ -379,7 +379,7 @@ html, body {
         });
 
         // Button animation
-        const konsultasiBtn = document.querySelector('.btn-konsultasi');
+        const konsultasiBtn = document.querySelector('.btn-scan');
 
         konsultasiBtn.addEventListener('mouseenter', function(e) {
             this.style.transform = 'translateY(-3px) scale(1.05)';
