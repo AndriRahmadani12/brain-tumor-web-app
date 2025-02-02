@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="asset/css/reset.css">
     <link rel="stylesheet" href="asset/css/navbar.css">
+    <link rel="stylesheet" href="asset/css/main.css">
     <link rel="stylesheet" href="asset/css/footer.css">
 </head>
 <body>
@@ -35,9 +36,53 @@
         </div>
         <div class="overlay"></div>
     </nav>
-    <br>
-    <br>
-    <br>
+    <div class="app-container">
+        <div class="split-layout">
+            <div class="upload-card">
+                <div class="card-header">
+                    <h2>Upload MRI's Scan Image</h2>
+                </div>
+                <div class="card-content">
+                    <div class="upload-zone" id="dropZone">
+                        <p class="upload-text">Drag & drop gambar atau pilih file untuk analisis</p>
+                        <button class="upload-btn">Pilih File</button>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="url-input-container">
+                        <input type="text" class="url-input" placeholder="Atau paste URL gambar di sini" id="urlInput">
+                        <button class="upload-btn" style="width: 100%" id="urlSubmit">Upload dari URL</button>
+                    </div>
+
+                    <div class="example-images">
+                        <p class="example-text">Tidak ada gambar? Coba salah satu dari ini:</p>
+                        <div class="example-grid">
+                            <img src="asset/img/1.jpg" alt="Example 1" class="example-image" onclick="useExampleImage(this)">
+                            <img src="asset/img/2.jpg" alt="Example 2" class="example-image" onclick="useExampleImage(this)">
+                            <img src="asset/img/3.jpg" alt="Example 3" class="example-image" onclick="useExampleImage(this)">
+                            <img src="asset/img/4.jpg" alt="Example 4" class="example-image" onclick="useExampleImage(this)">
+                        </div>
+                        <p class="terms-text">
+                            Dengan mengunggah gambar atau URL, Anda menyetujui <a href="#">Ketentuan Layanan</a> kami. 
+                            Untuk mempelajari lebih lanjut tentang cara kami menangani data pribadi Anda, lihat 
+                            <a href="#">Kebijakan Privasi</a> kami.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <div class="card-header">
+                    <h2>Hasil Analisis</h2>
+                </div>
+                <div class="card-content">
+                    <div class="result-content" id="resultContent">
+                        <!-- Results will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-container">
@@ -104,62 +149,7 @@
             <p class="copyright">© 2024 NeuraScan. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const overlay = document.querySelector('.overlay');
-        const body = document.body;
-
-        // Toggle menu
-        hamburger.addEventListener('click', () => {
-            toggleMenu();
-        });
-
-        // Close menu when clicking overlay
-        overlay.addEventListener('click', () => {
-            toggleMenu();
-        });
-
-        // Close menu when clicking nav links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                toggleMenu();
-            });
-        });
-
-        // Function to toggle menu state
-        function toggleMenu() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            overlay.classList.toggle('active');
-            body.classList.toggle('menu-open');
-        }
-
-        // Navbar scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const navbar = document.querySelector('.navbar');
-
-            if (currentScroll <= 0) {
-                navbar.style.boxShadow = 'none';
-            } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-
-            lastScroll = currentScroll;
-        });
-
-        // Button animation
-        const konsultasiBtn = document.querySelector('.btn-scan');
-
-        konsultasiBtn.addEventListener('mouseenter', function(e) {
-            this.style.transform = 'translateY(-3px) scale(1.05)';
-        });
-
-        konsultasiBtn.addEventListener('mouseleave', function(e) {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    </script>
+    <script src="asset/js/navbar.js"></script>
+    <script src="asset/js/main.js"></script>
 </body>
 </html>
