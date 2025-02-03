@@ -1,5 +1,5 @@
 :root {
-    --white: #F9F7F7;
+    --white: #FFFFFF;
     --light-blue: #DBE2EF;
     --primary-blue: #3F72AF;
     --black: #112D4E;
@@ -7,25 +7,16 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.app-container {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--white);
     color: var(--black);
     line-height: 1.6;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
-}
-
-.app-container {
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 40px;
+    padding: 0 80px;
 }
 
 .split-layout {
@@ -294,7 +285,7 @@ body {
 
 @media (max-width: 768px) {
     .app-container {
-        padding: 0 1rem;
+        padding: 0 24px;
         margin: 1rem auto;
     }
     
