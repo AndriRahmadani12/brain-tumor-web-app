@@ -4,37 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeuraScan - MRI Tumor Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="asset/css/reset.css">
-    <link rel="stylesheet" href="asset/css/navbar.css">
     <link rel="stylesheet" href="asset/css/main.css">
     <link rel="stylesheet" href="asset/css/footer.css">
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Overlay -->
+    <div class="fixed top-0 left-0 w-screen h-screen bg-white/15 backdrop-blur-md hidden opacity-0 invisible z-[998] transition-all duration-300 overlay">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-[#F9F7F7] px-20 py-4 relative w-full max-w-full top-0 left-0 z-[997] flex justify-between items-center transition-all duration-300">
+        <!-- Logo -->
         <div class="logo">
-            <img src="asset/img/logo.png" alt="NeuraScan Logo">
+            <img src="asset/img/logo.png" alt="NeuraScan Logo" class="h-8 w-auto block">
         </div>
-    
-        <div class="nav-links">
-            <div class="mobile-logo">
-                <img src="asset/img/logo.png" alt="NeuraScan Logo">
+
+        <!-- Navigation Links -->
+        <div class="nav-links flex items-center gap-8 md:translate-x-0 md:shadow-none fixed md:relative top-0 -right-[70%] md:right-0 h-screen md:h-auto w-[70%] md:w-auto max-w-[70%] md:max-w-none bg-[#F9F7F7] md:bg-transparent flex-col md:flex-row p-8 md:p-0 transition-all duration-500 ease-in-out md:shadow-none shadow-[-5px_0_15px_rgba(0,0,0,0.2)] z-[1001] overflow-y-auto md:overflow-visible">
+            <!-- Mobile Logo -->
+            <div class="mobile-logo block md:hidden w-full text-left mb-8">
+                <img src="asset/img/logo.png" alt="NeuraScan Logo" class="h-6 w-auto ml-0">
             </div>
-            
-            <a href="#beranda">Home</a>
-            <a href="#layanan">Docs</a>
-            <a href="#layanan">Tentang Kami</a>
-            <div class="auth-buttons">
-                <button class="btn btn-scan">Scan Sekarang</button>
+
+            <!-- Nav Links -->
+            <div class="flex flex-col md:flex-row w-full md:w-auto flex-1 gap-4 md:gap-8 items-start md:items-center">
+                <a href="#beranda" class="text-[#112D4E] no-underline font-medium text-base relative hover:after:w-full after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-[#112D4E] after:transition-all after:duration-300 w-full md:w-auto py-2 md:py-0">Home</a>
+                <a href="#layanan" class="text-[#112D4E] no-underline font-medium text-base relative hover:after:w-full after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-[#112D4E] after:transition-all after:duration-300 w-full md:w-auto py-2 md:py-0">Docs</a>
+                <a href="#layanan" class="text-[#112D4E] no-underline font-medium text-base relative hover:after:w-full after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-[#112D4E] after:transition-all after:duration-300 w-full md:w-auto py-2 md:py-0">Tentang Kami</a>
+            </div>
+
+            <!-- Auth Buttons -->
+            <div class="flex flex-col md:flex-row gap-4 items-center w-full md:w-auto mb-8 md:mb-0">
+                <button class="btn-scan bg-[#112D4E] text-[#F9F7F7] px-6 py-3 rounded-full font-semibold text-sm cursor-pointer transition-all duration-400 relative overflow-hidden hover:transform hover:translate-y-[-3px] hover:scale-105 hover:shadow-lg active:translate-y-[-1px] active:scale-102 w-full md:w-auto text-center">Scan Sekarang</button>
             </div>
         </div>
-    
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger hidden md:hidden cursor-pointer w-[30px] h-[20px] relative z-[1002]">
+            <span class="block absolute h-[3px] w-full bg-[#112D4E] rounded transition-all duration-300"></span>
+            <span class="block absolute h-[3px] w-full bg-[#112D4E] rounded transition-all duration-300 top-[8px]"></span>
+            <span class="block absolute h-[3px] w-full bg-[#112D4E] rounded transition-all duration-300 top-[16px]"></span>
         </div>
-        <div class="overlay"></div>
     </nav>
     <div class="app-container">
         <div class="split-layout">
