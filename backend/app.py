@@ -5,19 +5,26 @@ import cv2
 import numpy as np
 import os
 import uuid
-import time  # Import modul time untuk menghitung waktu pemrosesan
+import time
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Bisa diganti dengan domain tertentu misalnya ["http://localhost:3000"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# Setup static files directory
+
 os.makedirs("static", exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Load model YOLOv8
+# Load model 
 model_path = "model/best.pt"
 model = YOLO(model_path)
 
-# Warna untuk setiap kelas (BGR format)
 CLASS_COLORS = {
     "Glioma": (0, 255, 0),       # Hijau
     "Meningioma": (0, 0, 255),   # Merah
@@ -27,22 +34,17 @@ CLASS_COLORS = {
 @app.post("/predict/")
 async def predict_mri_tumor(file: UploadFile = File(...)):
     try:
-        # Catat waktu mulai
+
         start_time = time.time()
-        
-        # Baca gambar
         contents = await file.read()
         img = cv2.imdecode(np.frombuffer(contents, np.uint8), cv2.IMREAD_COLOR)
         
-        # Lakukan prediksi
         results = model.predict(source=img, conf=0.5, iou=0.5, imgsz=640)
         result = results[0]
         
-        # Proses hasil deteksi
         output_image_path = f"static/output_{uuid.uuid4().hex}.jpg"
         
         if result.boxes:
-            # Gambar hasil prediksi dengan warna khusus
             annotated_img = img.copy()
             
             for box, mask in zip(result.boxes, result.masks):
@@ -51,7 +53,6 @@ async def predict_mri_tumor(file: UploadFile = File(...)):
                 confidence = float(box.conf)
                 bbox = box.xyxy[0].cpu().numpy()
                 
-                # Skip jika kelas adalah "No Tumor"
                 if class_name == "No Tumor":
                     continue
                 
@@ -97,7 +98,6 @@ async def predict_mri_tumor(file: UploadFile = File(...)):
                 }
             }
         else:
-            # Hitung waktu pemrosesan
             processing_time = time.time() - start_time
             
             return {
