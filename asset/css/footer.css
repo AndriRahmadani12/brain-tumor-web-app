@@ -1,0 +1,211 @@
+.footer {
+    background: #1e293b;
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    padding-top: 4rem;
+}
+
+.footer-content {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 80px
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand {
+    max-width: 380px;
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+    margin-bottom: 1.5rem;
+}
+
+.brand-description {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background: #f8fafc;
+    color: #1e293b;
+    transform: translateY(-2px);
+}
+
+.footer-collab h3,
+.footer-contact h3 {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: #cbd5e1;
+    font-size: 0.925rem;
+}
+
+.footer-contact i {
+    color: #64748b;
+    width: 16px;
+}
+
+/* Collaboration Cards Styling */
+.collab-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.collab-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-frame {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.partner-info {
+    flex: 1;
+}
+
+.university {
+    color: #f8fafc;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.125rem;
+}
+
+.department {
+    color: #cbd5e1;
+    font-size: 0.8125rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 32px 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.made-with-love {
+    color: #cbd5e1;
+    font-size: 0.925rem;
+    margin-bottom: 0.75rem;
+}
+
+.made-with-love i {
+    color: #ef4444;
+    margin: 0 0.25rem;
+    animation: heartBeat 1.5s ease infinite;
+}
+
+.copyright {
+    font-size: 0.825rem;
+    color: #64748b;
+    margin: 0;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-contact li {
+        justify-content: center;
+    }
+
+    .collab-cards {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 0 1.5rem;
+    }
+
+    .collab-card {
+        padding: 0.625rem;
+    }
+
+    .logo-frame {
+        width: 36px;
+        height: 36px;
+    }
+}

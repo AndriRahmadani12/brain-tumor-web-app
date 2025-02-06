@@ -1,0 +1,320 @@
+:root {
+    --white: #FFFFFF;
+    --light-blue: #DBE2EF;
+    --primary-blue: #3F72AF;
+    --black: #112D4E;
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 80px;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+    height: 100%;
+    align-items: start;
+}
+
+.upload-card, .result-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    height: 650px;
+    border: 1px solid rgba(219, 226, 239, 0.5);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(219, 226, 239, 0.3);
+    background: rgba(249, 247, 247, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 16px 16px 0 0;
+    flex-shrink: 0;
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--black);
+    letter-spacing: -0.02em;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-zone {
+    border: 2px dashed rgba(219, 226, 239, 0.6);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    background: rgba(249, 247, 247, 0.5);
+    margin-bottom: 1rem;
+}
+
+.upload-zone.dragover {
+    border-color: var(--primary-blue);
+    background: rgba(63, 114, 175, 0.03);
+}
+
+.upload-text {
+    margin-bottom: 1.5rem;
+    color: var(--black);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.upload-btn {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.upload-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(63, 114, 175, 0.15);
+}
+
+.url-input-container {
+    margin-top: 1rem;
+}
+
+.url-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--light-blue);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.example-images {
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.example-text {
+    font-size: 0.85rem;
+    color: var(--black);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.example-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.example-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+.image-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.image-comparison-item {
+    flex: 1;
+}
+
+.image-comparison img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.image-label {
+    font-size: 0.85rem;
+    color: var(--black);
+    opacity: 0.6;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+
+
+.result-box {
+    background: rgba(249, 247, 247, 0.5);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(219, 226, 239, 0.3);
+}
+
+.image-preview {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.findings-list {
+    list-style: none;
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+}
+
+.findings-list li {
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    opacity: 0.75;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.findings-list li::before {
+    content: '•';
+    position: absolute;
+    left: -0.5rem;
+    color: var(--primary-blue);
+}
+
+.confidence-section {
+    background: #FFFFFF;
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid rgba(219, 226, 239, 0.4);
+}
+
+.confidence-bar {
+    height: 4px;
+    background: var(--light-blue);
+    border-radius: 2px;
+    margin: 0.75rem 0;
+}
+
+.confidence-progress {
+    height: 100%;
+    background: var(--primary-blue);
+    width: 0%;
+    transition: width 1.5s ease;
+    border-radius: 2px;
+}
+
+.metadata {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(219, 226, 239, 0.3);
+    font-size: 0.85rem;
+    color: var(--black);
+    opacity: 0.6;
+}
+
+.terms-text {
+    font-size: 0.75rem;
+    color: var(--black);
+    opacity: 0.5;
+    text-align: center;
+    margin: 1rem 0 1.5rem; /* Menambah margin bottom */
+    line-height: 1.4;
+}
+.terms-text a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0 24px;
+        margin: 1rem auto;
+    }
+    
+    .example-grid {
+        gap: 0.35rem; /* Mengurangi gap antar gambar */
+        padding: 0 0.5rem; /* Memberikan sedikit padding di container */
+    }
+    .example-image {
+        width: 100%;
+        max-width: 60px; /* Tetapkan ukuran maksimal */
+        aspect-ratio: 1;
+        margin: 0 auto; /* Center image dalam grid cell */
+    }
+    .image-comparison {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Custom Scrollbar */
+.result-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.result-content::-webkit-scrollbar-track {
+    background: var(--light-blue);
+    border-radius: 3px;
+}
+
+.result-content::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 3px;
+}
