@@ -41,14 +41,16 @@
             <div class="upload-card">
                 <div class="card-header">
                     <h2>Upload MRI's Scan Image</h2>
-                    <img src="output_395866dde781478ca9f3bbbe636b8a78.jpg" alt="Upload Image">
                 </div>
                 <div class="card-content">
-                    <div class="upload-zone" id="dropZone">
-                        <p class="upload-text">Drag & drop gambar atau pilih file untuk analisis</p>
-                        <button class="upload-btn">Pilih File</button>
-                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
-                    </div>
+                    <!-- Modified upload form structure -->
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="upload-zone" id="dropZone">
+                            <p class="upload-text">Drag & drop gambar atau pilih file untuk analisis</p>
+                            <button type="button" class="upload-btn" id="selectFileBtn">Pilih File</button>
+                            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        </div>
+                    </form>
                     
                     <div class="url-input-container">
                         <input type="text" class="url-input" placeholder="Atau paste URL gambar di sini" id="urlInput">
@@ -58,10 +60,10 @@
                     <div class="example-images">
                         <p class="example-text">Tidak ada gambar? Coba salah satu dari ini:</p>
                         <div class="example-grid">
-                            <img src="asset/img/1.jpg" alt="Example 1" class="example-image" onclick="useExampleImage(this)">
-                            <img src="asset/img/2.jpg" alt="Example 2" class="example-image" onclick="useExampleImage(this)">
-                            <img src="asset/img/3.jpg" alt="Example 3" class="example-image" onclick="useExampleImage(this)">
-                            <img src="asset/img/4.jpg" alt="Example 4" class="example-image" onclick="useExampleImage(this)">
+                            <img src="asset/img/1.jpg" alt="Example 1" class="example-image">
+                            <img src="asset/img/2.jpg" alt="Example 2" class="example-image">
+                            <img src="asset/img/3.jpg" alt="Example 3" class="example-image">
+                            <img src="asset/img/4.jpg" alt="Example 4" class="example-image">
                         </div>
                         <p class="terms-text">
                             Dengan mengunggah gambar atau URL, Anda menyetujui <a href="#">Ketentuan Layanan</a> kami. 
